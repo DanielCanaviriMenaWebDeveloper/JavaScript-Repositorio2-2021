@@ -16,17 +16,33 @@
 
 function cuadradoCallback(value, callback) {
     var rango = 0 | (Math.random() * 10000);
-    console.log("Rango : ", rango); 
-    
+        console.log('Rango : ', rango); 
     setTimeout(() => {
         callback(value, value * value);
         
     }, rango);
 }
 
-cuadradoCallback(5, (value, result) => {
-    console.log("Inicia Callback");
+cuadradoCallback(4, (value, result) => {
+    console.log("Callback version 1");
     console.log(`Callback: ${value}, ${result}`);
 });
 
-/* console.log(Math.random() * 10000); */
+
+/* Otra forma de resolver el anterior problema */
+
+function cuadradoCallback(value, fn) {
+	var rango = 0 | (Math.random() * 10000);
+	console.log("Rango : ", rango);
+
+	setTimeout(() => {
+		fn(value, value * value);
+	}, rango);
+}
+
+function callback(value, result) {
+    console.log("Callback version 2");
+	console.log(`Callback: ${value}, ${result}`);
+}
+
+cuadradoCallback(10, callback);
