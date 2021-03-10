@@ -23,13 +23,47 @@ function cuadradoCallback(value, callback) {
     }, rango);
 }
 
-cuadradoCallback(4, (value, result) => {
-    console.log("Callback version 1");
+cuadradoCallback(0, (value, result) => {
+    console.log("Callback N° 1");
     console.log(`Callback: ${value}, ${result}`);
+    cuadradoCallback(1, (value, result) => {
+		console.log("Callback N° 2");
+        console.log(`Callback: ${value}, ${result}`);
+        cuadradoCallback(2, (value, result) => {
+			console.log("Callback N° 2");
+            console.log(`Callback: ${value}, ${result}`);
+            cuadradoCallback(3, (value, result) => {
+				console.log("Callback N° 3");
+                console.log(`Callback: ${value}, ${result}`);
+                cuadradoCallback(4, (value, result) => {
+					console.log("Callback N° 4");
+                    console.log(`Callback: ${value}, ${result}`);
+                    cuadradoCallback(5, (value, result) => {
+						console.log("Callback N° 5");
+                        console.log(`Callback: ${value}, ${result}`);
+                        cuadradoCallback(6, (value, result) => {
+							console.log("Callback N° 6");
+                            console.log(`Callback: ${value}, ${result}`);
+                            cuadradoCallback(7, (value, result) => {
+								console.log("Callback N° 7");
+                                console.log(`Callback: ${value}, ${result}`);
+                                cuadradoCallback(8, (value, result) => {
+									console.log("Callback N° 8");
+									console.log(`Callback: ${value}, ${result}`);
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+    });
 });
 
 
 /* Otra forma de resolver el anterior problema */
+
+/*
 
 function cuadradoCallback(value, fn) {
 	var rango = 0 | (Math.random() * 10000);
@@ -46,3 +80,5 @@ function callback(value, result) {
 }
 
 cuadradoCallback(10, callback);
+
+*/
