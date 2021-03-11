@@ -12,6 +12,9 @@
         dentro del rango [0, 1). Esto es, desde el 0 (Incluido) hasta el 1 pero sin 
         incluirlo (excluido), el cual se puede escalar hasta el rango deseado.
 
+    
+    http://callbackhell.com/
+
 */
 
 function cuadradoCallback(value, callback) {
@@ -23,7 +26,9 @@ function cuadradoCallback(value, callback) {
     }, rango);
 }
 
+/* Ejemplo de un callback hell (Piramide de la Muerte) */
 cuadradoCallback(0, (value, result) => {
+    console.log("*** Inicio de los Callback ***");
     console.log("Callback N° 1");
     console.log(`Callback: ${value}, ${result}`);
     cuadradoCallback(1, (value, result) => {
@@ -49,7 +54,8 @@ cuadradoCallback(0, (value, result) => {
                                 console.log(`Callback: ${value}, ${result}`);
                                 cuadradoCallback(8, (value, result) => {
 									console.log("Callback N° 8");
-									console.log(`Callback: ${value}, ${result}`);
+                                    console.log(`Callback: ${value}, ${result}`);
+                                    console.log("*** Fin de los Callback ****");
 								});
 							});
 						});
@@ -82,3 +88,4 @@ function callback(value, result) {
 cuadradoCallback(10, callback);
 
 */
+
