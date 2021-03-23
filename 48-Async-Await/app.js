@@ -12,3 +12,11 @@ function cuadradoPromise(value) {
     });
 }
 
+cuadradoPromise(0)
+.then(obj => {
+    console.log(obj);
+    console.log("Inicio Promise");
+    console.log(`Promise: ${obj.value}, ${obj.result}`);
+
+})
+.catch(err => console.error(err));
